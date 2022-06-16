@@ -9,13 +9,16 @@ vim.cmd([[
 ]])
 
 return require('packer').startup(function()
-    use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim' -- packer it self
+    use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+    -- themes
     use 'ayu-theme/ayu-vim'
     use {
         "ellisonleao/gruvbox.nvim",
         requires = {"rktjmp/lush.nvim"}
     }
 
+    -- left tree
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {
@@ -23,4 +26,13 @@ return require('packer').startup(function()
         },
         --tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
+
+    -- lsp
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'L3MON4D3/LuaSnip'
+    use 'onsails/lspkind-nvim'
 end)
