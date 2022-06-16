@@ -26,10 +26,14 @@ mapcmd('<leader>ev', ':vsplit $MYVIMRC<cr>')
 mapcmd('<leader>sv', ':source $MYVIMRC<cr>')
 
 -- fase move between windows
-mapcmd('<leader>j', '<c-w>j')
-mapcmd('<leader>k', '<c-w>k')
-mapcmd('<leader>h', '<c-w>h')
-mapcmd('<leader>l', '<c-w>l')
+-- mapcmd('<leader>j', '<c-w>j')
+-- mapcmd('<leader>k', '<c-w>k')
+-- mapcmd('<leader>h', '<c-w>h')
+-- mapcmd('<leader>l', '<c-w>l')
 
 -- command
-mapcmd('<leader><leader>', ':')
+--mapcmd('<leader><leader>', ':')
+
+ mapcmd('<C-p>', '<cmd>lua require"plugin_config/telescope".project_files()<cr>')
+ mapcmd('<leader>/', '<cmd>lua require"telescope.builtin".grep_string()<cr>')
+
