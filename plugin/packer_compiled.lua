@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
@@ -148,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["workspaces.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\workspaces.nvim",
+    url = "https://github.com/natecraddock/workspaces.nvim"
   }
 }
 

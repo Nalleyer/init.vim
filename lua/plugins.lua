@@ -41,4 +41,8 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim',
         requires = 'nvim-lua/plenary.nvim'
     }
+
+    use 'nvim-treesitter/nvim-treesitter'
+
+    use 'natecraddock/workspaces.nvim'
 end)
