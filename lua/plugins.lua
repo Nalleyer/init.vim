@@ -12,11 +12,14 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim' -- packer it self
     use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
     -- themes
-    use 'ayu-theme/ayu-vim'
+    --use 'ayu-theme/ayu-vim'
+    use 'Shatur/neovim-ayu'
     use {
         "ellisonleao/gruvbox.nvim",
         requires = {"rktjmp/lush.nvim"}
     }
+    use "projekt0n/github-nvim-theme"
+    use "RRethy/nvim-base16"
 
     -- left tree
     use {
@@ -45,4 +48,9 @@ return require('packer').startup(function()
     use 'nvim-treesitter/nvim-treesitter'
 
     use 'natecraddock/workspaces.nvim'
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 end)

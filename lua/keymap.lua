@@ -17,10 +17,6 @@ end
 mapcmd('<leader>ft', 'NvimTreeToggle')
 mapcmd('<leader>ff', 'NvimTreeFocus')
 
---open/load vimrc
-mapcmd('<leader>ev', ':vsplit $MYVIMRC<cr>')
-mapcmd('<leader>sv', ':source $MYVIMRC<cr>')
-
 -- open/load vimrc
 mapcmd('<leader>ev', ':vsplit $MYVIMRC<cr>')
 mapcmd('<leader>sv', ':source $MYVIMRC<cr>')

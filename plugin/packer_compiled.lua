@@ -74,11 +74,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["ayu-vim"] = {
-    loaded = true,
-    path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ayu-vim",
-    url = "https://github.com/ayu-theme/ayu-vim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
@@ -99,6 +94,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["github-nvim-theme"] = {
+    loaded = true,
+    path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\github-nvim-theme",
+    url = "https://github.com/projekt0n/github-nvim-theme"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox.nvim",
@@ -109,10 +109,25 @@ _G.packer_plugins = {
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["lush.nvim"] = {
     loaded = true,
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lush.nvim",
     url = "https://github.com/rktjmp/lush.nvim"
+  },
+  ["neovim-ayu"] = {
+    loaded = true,
+    path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neovim-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
+  },
+  ["nvim-base16"] = {
+    loaded = true,
+    path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-base16",
+    url = "https://github.com/RRethy/nvim-base16"
   },
   ["nvim-cmp"] = {
     loaded = true,
