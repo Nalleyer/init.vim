@@ -43,12 +43,5 @@ vim.opt.fencs = {
 
 vim.opt.helplang = 'cn'
 
-
--- ayu
---set termguicolors
---let ayucolor="light"
---colorscheme ayu
---" lightline + ayu
---let g:lightline = {
---    \ 'colorscheme': 'ayu',
---    \ }
+vim.opt.guifont = "MesloLGS NF:h20"
+vim.opt.mouse = 'a'

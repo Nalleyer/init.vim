@@ -30,6 +30,13 @@ mapcmd('<leader>sv', ':source $MYVIMRC<cr>')
 -- command
 --mapcmd('<leader><leader>', ':')
 
+-- telescope
  mapcmd('<C-p>', '<cmd>lua require"plugin_config/telescope".project_files()<cr>')
+ mapcmd('<leader>bb', '<cmd>lua require "telescope.builtin".buffers()<cr>')
  mapcmd('<leader>/', '<cmd>lua require"telescope.builtin".grep_string()<cr>')
 
+ -- trouble
+ mapcmd('<leader>tt', ':TroubleToggle<cr>')
+
+ -- custom
+ mapcmd('<leader>pp', '<cmd>lua require"child_plugin".copy_file_path()<cr>')

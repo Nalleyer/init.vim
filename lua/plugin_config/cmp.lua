@@ -5,6 +5,10 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
+local function on_attach(client, bufnr)
+    require('lsp-status').on_attach(client, bufnr)
+end
+
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -112,14 +116,15 @@ cmp.setup({
                 })
             })
 
-            -- nvim-lspconfig config
-            -- List of all pre-configured LSP servers:
-            -- github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+            -- Setup lspconfig.
             require'lspconfig'.gopls.setup{}
             local servers = { 'ccls', 'html', 'tsserver', 'rust_analyzer', 'bashls', 'pyright', 'gopls', 'sumneko_lua'}
-            for _, lsp in pairs(servers) do
-                require('lspconfig')[lsp].setup {
-                    on_attach = on_attach
+            local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+            -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+            for _, lsp_name in ipairs(servers) do
+                require('lspconfig')[lsp_name].setup {
+                    capabilities = capabilities,
+                    on_attach = on_attach,
                 }
             end
 
