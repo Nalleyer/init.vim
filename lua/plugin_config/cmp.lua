@@ -1,13 +1,29 @@
-local cmp = require'cmp'
+local cmp = require 'cmp'
 
 local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
 local function on_attach(client, bufnr)
     require('lsp-status').on_attach(client, bufnr)
 end
+
+local border = {
+      {"┌", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"┐", "FloatBorder"},
+      {"│", "FloatBorder"},
+      {"┘", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"└", "FloatBorder"},
+      {"│", "FloatBorder"},
+}
+
+local handlers = {
+    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+}
 
 cmp.setup({
     snippet = {
@@ -34,7 +50,7 @@ cmp.setup({
         --}),
         ---- Accept currently selected item...
         ---- Set `select` to `false` to only confirm explicitly selected items:
-        --['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ["<C-j>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -45,7 +61,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "i", "s", "c"}),
+        end, { "i", "s", "c" }),
 
         -- tab same as c-j
         --[[
@@ -66,7 +82,8 @@ cmp.setup({
             if vim.fn.pumvisible() == 1 then
                 vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n', true)
             elseif has_words_before() and luasnip.expand_or_jumpable() then
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '', true)
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true),
+                    '', true)
             else
                 fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
             end
@@ -81,7 +98,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "i", "s", "c"}),
+        end, { "i", "s", "c" }),
 
         -- ... Your other mappings ...
     },
@@ -90,71 +107,72 @@ cmp.setup({
         -- { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
-    }, {{ name = 'buffer' }})
+    }, { { name = 'buffer' } })
 })
 
 -- You can also set special config for specific filetypes:
 --    cmp.setup.filetype('gitcommit', {
-    --        sources = cmp.config.sources({
-        --            { name = 'cmp_git' },
-        --        }, {
-            --            { name = 'buffer' },
-            --        })
-            --    })
+--        sources = cmp.config.sources({
+--            { name = 'cmp_git' },
+--        }, {
+--            { name = 'buffer' },
+--        })
+--    })
 
-            -- nvim-cmp for commands
-            cmp.setup.cmdline('/', {
-                sources = {
-                    { name = 'buffer' }
-                }
-            })
-            cmp.setup.cmdline(':', {
-                sources = cmp.config.sources({
-                    { name = 'path' }
-                }, {
-                    { name = 'cmdline' }
-                })
-            })
+-- nvim-cmp for commands
+cmp.setup.cmdline('/', {
+    sources = {
+        { name = 'buffer' }
+    }
+})
+cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
+})
 
-            -- Setup lspconfig.
-            require'lspconfig'.gopls.setup{}
-            local servers = { 'ccls', 'html', 'tsserver', 'rust_analyzer', 'bashls', 'pyright', 'gopls', 'sumneko_lua'}
-            local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-            -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-            for _, lsp_name in ipairs(servers) do
-                require('lspconfig')[lsp_name].setup {
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                }
+-- Setup lspconfig.
+require 'lspconfig'.gopls.setup {}
+local servers = { 'ccls', 'html', 'tsserver', 'rust_analyzer', 'bashls', 'pyright', 'gopls', 'sumneko_lua' }
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+for _, lsp_name in ipairs(servers) do
+    require('lspconfig')[lsp_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        handlers = handlers,
+    }
+end
+
+local devicons = require('nvim-web-devicons')
+cmp.register_source('devicons', {
+    complete = function(_, _, callback)
+        local items = {}
+        for _, icon in pairs(devicons.get_icons()) do
+            table.insert(items, {
+                label = icon.icon .. '  ' .. icon.name,
+                insertText = icon.icon,
+                filterText = icon.name,
+            })
+        end
+        callback({ items = items })
+    end,
+})
+
+local lspkind = require('lspkind')
+cmp.setup {
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = 'symbol', -- show only symbol annotations
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+
+            -- The function below will be called before any actual modifications from lspkind
+            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+            before = function(_, vim_item)
+                return vim_item
             end
-
-            local devicons = require('nvim-web-devicons')
-            cmp.register_source('devicons', {
-                complete = function(_, _, callback)
-                    local items = {}
-                    for _, icon in pairs(devicons.get_icons()) do
-                        table.insert(items, {
-                            label = icon.icon .. '  ' .. icon.name,
-                            insertText = icon.icon,
-                            filterText = icon.name,
-                        })
-                    end
-                    callback({ items = items })
-                end,
-            })
-
-            local lspkind = require('lspkind')
-            cmp.setup {
-                formatting = {
-                    format = lspkind.cmp_format({
-                        mode = 'symbol', -- show only symbol annotations
-                        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-
-                        -- The function below will be called before any actual modifications from lspkind
-                        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-                        before = function (_, vim_item)
-                            return vim_item
-                        end
-                    })
-                }
-            }
+        })
+    }
+}
