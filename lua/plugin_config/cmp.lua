@@ -10,19 +10,20 @@ local function on_attach(client, bufnr)
 end
 
 local border = {
-      {"┌", "FloatBorder"},
-      {"─", "FloatBorder"},
-      {"┐", "FloatBorder"},
-      {"│", "FloatBorder"},
-      {"┘", "FloatBorder"},
-      {"─", "FloatBorder"},
-      {"└", "FloatBorder"},
-      {"│", "FloatBorder"},
+    { "┌", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "┐", "FloatBorder" },
+    { "│", "FloatBorder" },
+    { "┘", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "└", "FloatBorder" },
+    { "│", "FloatBorder" },
 }
 
 local handlers = {
     ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
     ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+    --["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.handlers.on_publish_diagnostics, { border = border }),
 }
 
 cmp.setup({

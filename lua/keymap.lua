@@ -53,9 +53,9 @@ mapcmd('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 mapcmd('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 mapcmd('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 -- diagnostic
-mapcmd('go', '<cmd>lua vim.diagnostic.open_float()<CR>')
-mapcmd('gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-mapcmd('gn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+mapcmd('go', '<cmd>lua vim.diagnostic.open_float({border = "single"})<CR>')
+mapcmd('gp', '<cmd>lua vim.diagnostic.goto_prev({border = "single"})<CR>')
+mapcmd('gn', '<cmd>lua vim.diagnostic.goto_next({border = "single"})<CR>')
 -- mapcmd('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
 -- leader + =
 mapcmd('<leader>==', '<cmd>lua vim.lsp.buf.formatting()<CR>')
