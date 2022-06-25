@@ -31,6 +31,8 @@ return require('packer').startup(function()
     use 'hrsh7th/nvim-cmp'
     use 'L3MON4D3/LuaSnip'
     use 'onsails/lspkind-nvim'
+    -- tabnine
+    use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
 
     -- file telescope
     use {
@@ -51,7 +53,9 @@ return require('packer').startup(function()
     use 'nvim-lua/lsp-status.nvim'
     use 'arkav/lualine-lsp-progress'
 
-    -- Lua
+
+    -- touble
+    --[[
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -63,4 +67,5 @@ return require('packer').startup(function()
             }
         end
     }
+    ]]
 end)

@@ -22,6 +22,7 @@ end
 M.init = function()
     require('telescope').setup{
         defaults = {
+            path_display={"shorten"},
             -- Default configuration for telescope goes here:
             -- config_key = value,
             mappings = {

@@ -29,14 +29,15 @@ mapcmd('<leader>sv', ':source $MYVIMRC<cr>')
 
 -- command
 --mapcmd('<leader><leader>', ':')
-
 -- telescope
 mapcmd('<C-p>', '<cmd>lua require"plugin_config/telescope".project_files()<cr>')
-mapcmd('<leader>bb', '<cmd>lua require "telescope.builtin".buffers()<cr>')
+mapcmd('<leader>tb', '<cmd>lua require "telescope.builtin".buffers()<cr>')
+mapcmd('<leader>tg', '<cmd>lua require "telescope.builtin".live_grep()<cr>')
+mapcmd('<leader>tt', '<cmd>lua require "telescope.builtin".diagnostics()<cr>')
 mapcmd('<leader>/', '<cmd>lua require"telescope.builtin".grep_string()<cr>')
 
 -- trouble
-mapcmd('<leader>tt', ':TroubleToggle<cr>')
+--mapcmd('<leader>tt', ':TroubleToggle<cr>')
 
 -- custom
 mapcmd('<leader>pp', '<cmd>lua require"child_plugin".copy_file_path()<cr>')
@@ -54,8 +55,8 @@ mapcmd('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 mapcmd('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 -- diagnostic
 mapcmd('go', '<cmd>lua vim.diagnostic.open_float({border = "single"})<CR>')
-mapcmd('gp', '<cmd>lua vim.diagnostic.goto_prev({border = "single"})<CR>')
-mapcmd('gn', '<cmd>lua vim.diagnostic.goto_next({border = "single"})<CR>')
+mapcmd('gp', '<cmd>lua vim.diagnostic.goto_prev({float = false})<CR>')
+mapcmd('gn', '<cmd>lua vim.diagnostic.goto_next({float = false})<CR>')
 -- mapcmd('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
 -- leader + =
 mapcmd('<leader>==', '<cmd>lua vim.lsp.buf.formatting()<CR>')

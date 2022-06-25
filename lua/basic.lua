@@ -43,5 +43,9 @@ vim.opt.fencs = {
 
 vim.opt.helplang = 'cn'
 
-vim.opt.guifont = "MesloLGS NF:h20"
+vim.opt.guifont = "MesloLGS NF:h18"
 vim.opt.mouse = 'a'
+
+vim.g.neovide_floating_blur_amount_x = 2.0
+vim.g.neovide_floating_blur_amount_y = 2.0
+vim.g.neovide_cursor_animation_length = 0.01
