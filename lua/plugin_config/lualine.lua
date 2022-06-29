@@ -1,3 +1,13 @@
+local function workspace()
+    local w = require('workspaces')
+    local workspace_name = w.name()
+    if workspace_name then
+        return workspace_name
+    else
+        return "no workspace"
+    end
+end
+
 require('lualine').setup {
     options = {
         icons_enabled = true,
@@ -11,7 +21,7 @@ require('lualine').setup {
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename', 'lsp_progress'},
+        lualine_c = {workspace, 'filename', 'lsp_progress'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
