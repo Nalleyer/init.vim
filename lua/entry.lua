@@ -1,3 +1,4 @@
+math.randomseed(os.time())
 require 'basic'
 require 'plugins'
 require 'keymap'

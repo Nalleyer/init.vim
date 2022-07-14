@@ -12,6 +12,8 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim' -- packer it self
     use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
     -- themes
+    use { "ellisonleao/gruvbox.nvim" }
+    use "Shatur/neovim-ayu"
     use "RRethy/nvim-base16"
 
     -- left tree

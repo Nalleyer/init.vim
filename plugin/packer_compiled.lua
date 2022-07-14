@@ -102,6 +102,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-tabnine",
     url = "https://github.com/tzachar/cmp-tabnine"
   },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
   ["lsp-status.nvim"] = {
     loaded = true,
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-status.nvim",
@@ -121,6 +126,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["neovim-ayu"] = {
+    loaded = true,
+    path = "C:\\Users\\qiliuliu\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neovim-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
   },
   ["nvim-base16"] = {
     loaded = true,
