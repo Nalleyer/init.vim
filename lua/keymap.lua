@@ -36,6 +36,10 @@ mapcmd('<leader>tg', '<cmd>lua require "telescope.builtin".live_grep()<cr>')
 mapcmd('<leader>tt', '<cmd>lua require "telescope.builtin".diagnostics()<cr>')
 mapcmd('<leader>/', '<cmd>lua require"telescope.builtin".grep_string()<cr>')
 
+-- window size
+mapkey('n', '<Up>', '<C-w>+')
+mapkey('n', '<Down>', '<C-w>-')
+
 -- trouble
 --mapcmd('<leader>tt', ':TroubleToggle<cr>')
 

@@ -147,6 +147,11 @@ for _, lsp_name in ipairs(servers) do
     }
 end
 
+-- special gdscript
+require'lspconfig'.gdscript.setup {
+    cmd = { "ncat", "localhost", "6008" }
+}
+
 local devicons = require('nvim-web-devicons')
 cmp.register_source('devicons', {
     complete = function(_, _, callback)
