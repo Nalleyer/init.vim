@@ -136,7 +136,7 @@ cmp.setup.cmdline(':', {
 
 -- Setup lspconfig.
 require 'lspconfig'.gopls.setup {}
-local servers = { 'ccls', 'html', 'tsserver', 'rust_analyzer', 'bashls', 'pyright', 'gopls', 'sumneko_lua', 'racket_langserver' }
+local servers = { 'clangd', 'html', 'tsserver', 'rust_analyzer', 'bashls', 'pyright', 'gopls', 'sumneko_lua', 'racket_langserver' }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 for _, lsp_name in ipairs(servers) do
