@@ -41,8 +41,8 @@ cmp.setup({
         end,
     },
     mapping = {
-        --['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        --['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        --['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
+        --['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4)),
         --['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
         --['<C-y>'] = cmp.config.disable,
         --['<C-e>'] = cmp.mapping({
@@ -136,7 +136,7 @@ cmp.setup.cmdline(':', {
 
 -- Setup lspconfig.
 require 'lspconfig'.gopls.setup {}
-local servers = { 'ccls', 'html', 'tsserver', 'rust_analyzer', 'bashls', 'pyright', 'gopls', 'sumneko_lua', 'racket_langserver' }
+local servers = { 'ccls', 'html', 'tsserver', 'rust_analyzer', 'bashls', 'pyright', 'gopls', 'sumneko_lua', 'racket_langserver', 'svelte' --[[, 'csharp_ls']] }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 for _, lsp_name in ipairs(servers) do
@@ -150,6 +150,9 @@ end
 -- special gdscript
 require'lspconfig'.gdscript.setup {
     cmd = { "ncat", "localhost", "6008" }
+}
+require'lspconfig'.volar.setup{
+  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 }
 
 local devicons = require('nvim-web-devicons')

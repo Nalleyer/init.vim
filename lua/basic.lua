@@ -43,9 +43,15 @@ vim.opt.fencs = {
 
 vim.opt.helplang = 'cn'
 
-vim.opt.guifont = "MesloLGS NF:h18"
+vim.opt.guifont = "Fira Code:h18"
 vim.opt.mouse = 'a'
 
-vim.g.neovide_floating_blur_amount_x = 2.0
-vim.g.neovide_floating_blur_amount_y = 2.0
-vim.g.neovide_cursor_animation_length = 0.01
+if vim.g.neovide then
+    vim.g.neovide_floating_blur_amount_x = 2.0
+    vim.g.neovide_floating_blur_amount_y = 2.0
+    vim.g.neovide_cursor_animation_length = 0.01
+    vim.g.neovide_cursor_vfx_mode = "pixiedust"
+    vim.g.neovide_cursor_vfx_particle_lifetime = 0.5
+    --vim.g.neovide_transparency = 0.9
+end
+

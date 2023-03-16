@@ -13,6 +13,10 @@ local THEMES = {
         end
     },
 }
+if vim.env.term and vim.env.term ~= "" then
+    vim.cmd('colorscheme gruvbox')
+    return
+end
 local theme_index_this_time = math.random(#THEMES)
 local theme_this_time = THEMES[theme_index_this_time]
 vim.cmd('colorscheme ' .. theme_this_time[1])
