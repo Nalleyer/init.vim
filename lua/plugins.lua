@@ -55,7 +55,7 @@ return require('packer').startup(function()
     use 'nvim-lua/lsp-status.nvim'
     use 'arkav/lualine-lsp-progress'
 
-
+    use 'Vonr/align.nvim'
     -- touble
     --[[
     use {
