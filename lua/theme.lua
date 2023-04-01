@@ -3,7 +3,7 @@ vim.opt.background = 'dark'
 local THEMES = {
     { 'gruvbox' },
     { 'base16-classic-light' },
-    { 'base16-atelier-lakeside-light' },
+    --{ 'base16-atelier-lakeside-light' },
     { 'ayu',
         function()
             local ayu = require('ayu')
@@ -12,6 +12,7 @@ local THEMES = {
             })
         end
     },
+    { 'catppuccin ' },
 }
 if vim.env.term and vim.env.term ~= "" then
     vim.cmd('colorscheme gruvbox')

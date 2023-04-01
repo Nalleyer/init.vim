@@ -15,6 +15,7 @@ return require('packer').startup(function()
     use { "ellisonleao/gruvbox.nvim" }
     use "Shatur/neovim-ayu"
     use "RRethy/nvim-base16"
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- left tree
     use {
