@@ -30,6 +30,9 @@ vim.cmd('iabbrev adn and')
 vim.cmd('iabbrev tehn then')
 vim.cmd('iabbrev udpate update')
 vim.cmd('iabbrev fasle false')
+-- racket lambda
+vim.cmd('autocmd BufNewFile,BufRead *.rkt set filetype=racket')
+vim.cmd('autocmd FileType racket inoreabbrev lambda λ')
 
 vim.opt.encoding = 'utf-8'
 vim.opt.fencs = {
