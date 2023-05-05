@@ -46,7 +46,7 @@ vim.opt.fencs = {
 
 vim.opt.helplang = 'cn'
 
-vim.opt.guifont = "Fira Code:h18"
+vim.opt.guifont = "FiraCode Nerd Font Mono:h18"
 vim.opt.mouse = 'a'
 
 if vim.g.neovide then
