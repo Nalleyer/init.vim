@@ -79,17 +79,17 @@ cmp.setup({
         end, { "i", "s" }),
         -]]
 
-        ['<Tab>'] = cmp.mapping(function(fallback)
-            if vim.fn.pumvisible() == 1 then
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n', true)
-            elseif has_words_before() and luasnip.expand_or_jumpable() then
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true),
-                    '', true)
-            else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-            end
-        end, { 'i', 's', 'c' }
-        ),
+        --['<Tab>'] = cmp.mapping(function(fallback)
+        --    if vim.fn.pumvisible() == 1 then
+        --        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n', true)
+        --    elseif has_words_before() and luasnip.expand_or_jumpable() then
+        --        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true),
+        --            '', true)
+        --    else
+        --        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+        --    end
+        --end, { 'i', 's', 'c' }
+        --),
 
         ["<C-k>"] = cmp.mapping(function(fallback)
             if cmp.visible() then

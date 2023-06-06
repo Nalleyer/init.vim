@@ -25,4 +25,9 @@ function u.make_progress(percent)
     return str
 end
 
+function u.is_big_file()
+  local line_count = vim.fn.line('$')
+  return line_count > 100000
+end
+
 return u

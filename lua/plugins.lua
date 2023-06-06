@@ -1,5 +1,6 @@
 vim.cmd [[packadd packer.nvim]]
 
+local utils = require('utils')
 
 vim.cmd([[
   augroup packer_user_config
@@ -7,6 +8,7 @@ vim.cmd([[
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
 ]])
+
 
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim' -- packer it self
@@ -57,6 +59,12 @@ return require('packer').startup(function()
     use 'arkav/lualine-lsp-progress'
 
     use 'Vonr/align.nvim'
+
+    if not utils.is_big_file() then
+        use 'github/copilot.vim'
+    else
+        print("big file, not loading copilot")
+    end
     -- touble
     --[[
     use {
