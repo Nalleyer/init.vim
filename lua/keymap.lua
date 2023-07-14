@@ -63,7 +63,7 @@ mapcmd('gp', '<cmd>lua vim.diagnostic.goto_prev({float = false})<CR>')
 mapcmd('gn', '<cmd>lua vim.diagnostic.goto_next({float = false})<CR>')
 -- mapcmd('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
 -- leader + =
-mapcmd('<leader>==', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+mapcmd('<leader>==', '<cmd>lua vim.lsp.buf.format({async=true})<CR>')
 
 -- copy paste
 mapkey('x', '<F1>', '"+y')

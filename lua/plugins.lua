@@ -37,7 +37,7 @@ return require('packer').startup(function()
     use 'L3MON4D3/LuaSnip'
     use 'onsails/lspkind-nvim'
     -- tabnine
-    use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
+    --use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
 
     -- file telescope
     use {
