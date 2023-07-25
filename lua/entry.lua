@@ -1,3 +1,4 @@
+--require 'minimal'
 math.randomseed(os.time())
 require 'basic'
 require 'plugins'

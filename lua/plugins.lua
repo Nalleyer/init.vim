@@ -51,8 +51,10 @@ return require('packer').startup(function()
 
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        cond = false,
     }
+    use { 'feline-nvim/feline.nvim', branch = '0.5-compat' }
 
     use 'Raku/vim-raku'
     use 'nvim-lua/lsp-status.nvim'
@@ -65,18 +67,16 @@ return require('packer').startup(function()
     else
         print("big file, not loading copilot")
     end
-    -- touble
-    --[[
+
     use {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("trouble").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
+      'aznhe21/hop.nvim',
+      branch = 'fix-some-bugs', -- optional but strongly recommended
+      config = function()
+        -- you can configure Hop the way you like here; see :h hop-config
+        require'hop'.setup { }
+      end
     }
-    ]]
+
+
+    use 'LhKipp/nvim-nu'
 end)

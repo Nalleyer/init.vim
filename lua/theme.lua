@@ -1,4 +1,10 @@
 vim.opt.background = 'dark'
+local is_gui_running = vim.api.nvim_eval("has('gui_running')")
+--print(is_gui_running)
+if is_gui_running == 0 then
+    vim.cmd('colorscheme catppuccin-mocha')
+    return
+end
 -- preview at https://base16.netlify.app/
 local THEMES = {
     { 'gruvbox' },
@@ -14,10 +20,6 @@ local THEMES = {
     },
     { 'catppuccin ' },
 }
-if vim.env.term and vim.env.term ~= "" then
-    vim.cmd('colorscheme gruvbox')
-    return
-end
 local theme_index_this_time = math.random(#THEMES)
 local theme_this_time = THEMES[theme_index_this_time]
 vim.cmd('colorscheme ' .. theme_this_time[1])
