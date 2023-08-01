@@ -24,9 +24,14 @@ local function setup_colors()
         git_add = utils.get_highlight("diffAdded").fg,
         git_change = utils.get_highlight("diffChanged").fg,
         normal = utils.get_highlight("Normal").fg,
+        directory = utils.get_highlight("Directory").fg,
+        type = utils.get_highlight("Type").fg,
     }
     return colors
 end
+
+-- load colors
+local colors = require("heirline").load_colors(setup_colors)
 
 -- components
 
@@ -255,7 +260,7 @@ local FileName = {
         end
         return filename
     end,
-    hl = { fg = utils.get_highlight("Directory").fg },
+    hl = { fg = "directory" },
 }
 
 local FileFlags = {
@@ -297,7 +302,7 @@ local FileType = {
     provider = function()
         return string.upper(vim.bo.filetype)
     end,
-    hl = { fg = utils.get_highlight("Type").fg, bold = true },
+    hl = { fg = "type", bold = true },
 }
 
 local FileEncoding = {
@@ -435,8 +440,6 @@ local StatusLines = {
 }
 
 local function setup()
-    -- load colors
-    local colors = require("heirline").load_colors(setup_colors)
 
     require("heirline").setup({
         statusline = StatusLines,
