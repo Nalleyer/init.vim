@@ -49,16 +49,21 @@ return require('packer').startup(function()
 
     use 'natecraddock/workspaces.nvim'
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        cond = false,
-    }
-    use { 'feline-nvim/feline.nvim', branch = '0.5-compat' }
-
     use 'Raku/vim-raku'
     use 'nvim-lua/lsp-status.nvim'
-    use 'arkav/lualine-lsp-progress'
+    use {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+    }
+    use({
+        "rebelot/heirline.nvim",
+        -- You can optionally lazy-load heirline on UiEnter
+        -- to make sure all required plugins and colorschemes are loaded before setup
+        -- event = "UiEnter",
+        --config = function()
+        --    require("heirline").setup({...})
+        --end
+    })
 
     use 'Vonr/align.nvim'
 
@@ -69,12 +74,12 @@ return require('packer').startup(function()
     end
 
     use {
-      'aznhe21/hop.nvim',
-      branch = 'fix-some-bugs', -- optional but strongly recommended
-      config = function()
-        -- you can configure Hop the way you like here; see :h hop-config
-        require'hop'.setup { }
-      end
+        'aznhe21/hop.nvim',
+        branch = 'fix-some-bugs', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require 'hop'.setup {}
+        end
     }
 
 
