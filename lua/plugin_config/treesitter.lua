@@ -11,6 +11,14 @@ function M.init()
             enable = true,
             additional_vim_regex_highlighting = false, -- disable standard vim highlighting
         },
+        rainbow = {
+            enable = true,
+            disable = {'cpp', 'rust'},
+            -- Which query to use for finding delimiters
+            query = 'rainbow-parens',
+            -- Highlight the entire buffer all at once
+            strategy = require('ts-rainbow').strategy.global,
+        },
     }
 end
 
