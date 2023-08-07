@@ -366,7 +366,7 @@ local ViModeS = utils.surround(
 
 -----------------------
 local DefaultStatusline = {
-    ViModeS, Space, FileNameBlock, Workspace,
+    ViModeS, Space, FileNameBlock, Space, Workspace,
     Space, Diagnostics, NoDiagnostics,
 
     Align,
@@ -376,7 +376,7 @@ local DefaultStatusline = {
 
 local InactiveStatusline = {
     condition = conditions.is_not_active,
-    FileType, Space, FileName, Align,
+    FileType, Space, FileNameBlock, Align,
 }
 
 local SpecialStatusline = {
