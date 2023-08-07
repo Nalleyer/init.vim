@@ -72,6 +72,7 @@ return require('packer').startup(function()
     else
         print("big file, not loading copilot")
     end
+    use 'HiPhish/nvim-ts-rainbow2'
 
     use {
         'aznhe21/hop.nvim',
@@ -81,7 +82,6 @@ return require('packer').startup(function()
             require 'hop'.setup {}
         end
     }
-
 
     use 'LhKipp/nvim-nu'
 end)
