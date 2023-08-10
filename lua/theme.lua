@@ -7,7 +7,8 @@ if is_gui_running == 0 then
 end
 -- preview at https://base16.netlify.app/
 local THEMES = {
-    { 'gruvbox' },
+    -- heirline not works well with gruvbox
+    -- { 'gruvbox' },
     { 'base16-classic-light' },
     --{ 'base16-atelier-lakeside-light' },
     { 'ayu',
