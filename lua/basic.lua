@@ -46,7 +46,7 @@ vim.opt.fencs = {
 
 vim.opt.helplang = 'cn'
 
-vim.opt.guifont = "FiraCode Nerd Font Mono:h18"
+vim.opt.guifont = "FiraCode NFM:h18"
 vim.opt.mouse = 'a'
 
 if vim.g.neovide then
@@ -58,3 +58,7 @@ if vim.g.neovide then
     --vim.g.neovide_transparency = 0.9
 end
 
+-- 如果当前目录里面有个.nvimconfig.lua，就把它当lua执行
+vim.cmd([[
+  autocmd BufEnter * lua if vim.fn.filereadable(vim.fn.expand('%:p:h')..'/.nvimconfig.lua') == 1 and vim.g.nalleyer_nvimconfig_loaded ~= 1 then vim.cmd('luafile ' .. vim.fn.expand('%:p:h')..'/.nvimconfig.lua')  vim.g.nalleyer_nvimconfig_loaded = 1 end
+]])

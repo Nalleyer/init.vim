@@ -50,6 +50,7 @@ return require('packer').startup(function()
     use 'natecraddock/workspaces.nvim'
 
     use 'Raku/vim-raku'
+    use 'leafo/moonscript-vim'
     use 'nvim-lua/lsp-status.nvim'
     use {
         'j-hui/fidget.nvim',
