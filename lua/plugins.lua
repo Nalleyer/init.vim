@@ -66,7 +66,7 @@ return require('packer').startup(function()
         --end
     })
 
-    use 'Vonr/align.nvim'
+    use 'echasnovski/mini.align'
 
     if not utils.is_big_file() then
         use 'github/copilot.vim'
