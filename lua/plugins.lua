@@ -85,4 +85,25 @@ return require('packer').startup(function()
     }
 
     use 'LhKipp/nvim-nu'
+
+    use 'stefanos82/nelua.vim'
+
+    use {
+        "S1M0N38/love2d.nvim",
+        config = function()
+            require("love2d").setup {
+                opts = {
+                    path_to_love_bin = "C:\\Program Files\\LOVE\\love.exe",
+                },
+            }
+        end
+        --[[
+        cmd = "LoveRun",
+        keys = {
+          { "<leader>v", ft = "lua", desc = "LÖVE" },
+          { "<leader>vv", "<cmd>LoveRun<cr>", ft = "lua", desc = "Run LÖVE" },
+          { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" }
+        }
+        ]]
+    }
 end)
